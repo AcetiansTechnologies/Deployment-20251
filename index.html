@@ -6,10 +6,11 @@
     <title>Coming Soon</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Animation for fade-in and slide-up effect */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -19,16 +20,70 @@
         .animate-fade-in-up {
             animation: fadeInUp 1.5s ease-in-out forwards;
         }
+
+        /* Glowing animation for background */
+        @keyframes glow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animated-bg {
+            background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff416c, #ff4b2b);
+            background-size: 400% 400%;
+            animation: glow 10s ease infinite;
+        }
     </style>
 </head>
-<body class="flex items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+<body class="flex items-center justify-center h-screen animated-bg text-white">
 
-    <div class="text-center">
-        <h1 class="text-5xl font-bold opacity-0 animate-fade-in-up">Coming Soon</h1>
-        <p class="text-lg mt-2 opacity-0 animate-fade-in-up" style="animation-delay: 0.5s;">
-            We are working on something amazing. Stay tuned!
+    <div class="text-center px-6">
+        <!-- Animated Heading -->
+        <h1 class="text-6xl font-extrabold opacity-0 animate-fade-in-up">Coming Soon</h1>
+
+        <!-- Subtext -->
+        <p class="text-lg mt-3 opacity-0 animate-fade-in-up" style="animation-delay: 0.5s;">
+            Something exciting is on its way! Stay tuned.
         </p>
+
+        <!-- Countdown Timer -->
+        <div id="countdown" class="text-3xl font-semibold mt-4 opacity-0 animate-fade-in-up" style="animation-delay: 1s;">
+            Launching in <span id="timer">00d 00h 00m 00s</span>
+        </div>
+
+        <!-- Subscription Form -->
+        <div class="mt-6 opacity-0 animate-fade-in-up" style="animation-delay: 1.5s;">
+            <input type="email" placeholder="Enter your email" 
+                class="px-4 py-2 text-black rounded-l-md outline-none w-64">
+            <button class="bg-white text-blue-600 px-4 py-2 rounded-r-md font-semibold hover:bg-gray-200">
+                Notify Me
+            </button>
+        </div>
     </div>
+
+    <!-- JavaScript for Countdown Timer -->
+    <script>
+        // Set the launch date
+        const launchDate = new Date("2025-04-01T00:00:00").getTime();
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const timeLeft = launchDate - now;
+
+            if (timeLeft < 0) {
+                document.getElementById("countdown").innerHTML = "We Are Live!";
+                return;
+            }
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        setInterval(updateTimer, 1000);
+    </script>
 
 </body>
 </html>
