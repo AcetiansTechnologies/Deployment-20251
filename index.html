@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coming Soon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 1.5s ease-in-out forwards;
+        }
+    </style>
 </head>
-<body>
-    Hi My Name is saif
+<body class="flex items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+
+    <div class="text-center">
+        <h1 class="text-5xl font-bold opacity-0 animate-fade-in-up">Coming Soon</h1>
+        <p class="text-lg mt-2 opacity-0 animate-fade-in-up" style="animation-delay: 0.5s;">
+            We are working on something amazing. Stay tuned!
+        </p>
+    </div>
+
 </body>
 </html>
