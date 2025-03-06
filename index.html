@@ -3,87 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <title>Media KULI - Drive Traffic, Increase Revenue</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Animation for fade-in and slide-up effect */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .animate-fade-in-up {
-            animation: fadeInUp 1.5s ease-in-out forwards;
-        }
-
-        /* Glowing animation for background */
-        @keyframes glow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .animated-bg {
-            background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff416c, #ff4b2b);
-            background-size: 400% 400%;
-            animation: glow 10s ease infinite;
-        }
-    </style>
 </head>
-<body class="flex items-center justify-center h-screen animated-bg text-white">
-
-    <div class="text-center px-6">
-        <!-- Animated Heading -->
-        <h1 class="text-6xl font-extrabold opacity-0 animate-fade-in-up">Coming Soon</h1>
-
-        <!-- Subtext -->
-        <p class="text-lg mt-3 opacity-0 animate-fade-in-up" style="animation-delay: 0.5s;">
-            Something exciting is on its way! Stay tuned.
-        </p>
-
-        <!-- Countdown Timer -->
-        <div id="countdown" class="text-3xl font-semibold mt-4 opacity-0 animate-fade-in-up" style="animation-delay: 1s;">
-            Launching in <span id="timer">00d 00h 00m 00s</span>
+<body class="bg-gray-100">
+    <header class="flex items-center justify-between px-10 py-5 bg-white shadow-md">
+        <div class="flex items-center space-x-2">
+            
+            <span class="text-[40px] font-bold">
+                MEDIA KULI
+            </span>
         </div>
-
-        <!-- Subscription Form -->
-        <div class="mt-6 opacity-0 animate-fade-in-up" style="animation-delay: 1.5s;">
-            <input type="email" placeholder="Enter your email" 
-                class="px-4 py-2 text-black rounded-l-md outline-none w-64">
-            <button class="bg-white text-blue-600 px-4 py-2 rounded-r-md font-semibold hover:bg-gray-200">
-                Notify Me
-            </button>
+        <nav class="space-x-6 font-semibold">
+            <a href="#" class="text-red-500">HOME</a>
+            <a href="#">OUR SOLUTIONS</a>
+            <a href="#">WHO WE ARE</a>
+            <a href="#">OUR WORK</a>
+            <a href="#">SHOP</a>
+            <a href="#">PAGES</a>
+            <a href="#">CONTACT</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-2">
+                <img src="https://cdn-icons-gif.flaticon.com/14674/14674244.gif" alt="Email" class="w-5 h-5">
+                <span class="text-sm">support@media-kuli.com</span>
+            </div>
+            <button class="px-5 py-2 bg-black text-white rounded-full">GET A PROPOSAL</button>
         </div>
-    </div>
-
-    <!-- JavaScript for Countdown Timer -->
-    <script>
-        // Set the launch date
-        const launchDate = new Date("2025-04-01T00:00:00").getTime();
-
-        function updateTimer() {
-            const now = new Date().getTime();
-            const timeLeft = launchDate - now;
-
-            if (timeLeft < 0) {
-                document.getElementById("countdown").innerHTML = "We Are Live!";
-                return;
-            }
-
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }
-
-        setInterval(updateTimer, 1000);
-    </script>
-
+    </header>
+    
+    <main class="flex items-center justify-between px-20 py-20 bg-white min-h-screen">
+        <div class="max-w-lg">
+            <h1 class="text-5xl font-bold">Drive Traffic,<br> Increase Revenue</h1>
+            <p class="text-lg text-gray-600 mt-4">At Adin, we specialize in transforming your digital footprint to drive traffic, boost rankings, and maximize your online potential.</p>
+            <button class="mt-6 px-6 py-3 bg-black text-white rounded-full">LET'S TALK →</button>
+        </div>
+        <div>
+            <img src="https://content.acetians.in/kuli.png" alt="SEO Illustration" class="w-[500px]">
+        </div>
+    </main>
 </body>
 </html>
