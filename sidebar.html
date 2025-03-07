@@ -1,0 +1,47 @@
+<div class="flex items-center justify-center py-4 bg-white">
+    <img src="https://content.acetians.in/bu.jpg"/>
+    
+</div>
+<div class="px-4 py-6 space-y-6">
+    <!-- Sidebar menu -->
+    <script>
+        window.onload = function() {
+            const sidebarContainer = document.getElementById('sidebar-container');
+            sidebar.forEach(module => {
+                const moduleDiv = document.createElement('div');
+                moduleDiv.classList.add('space-y-2');
+                const moduleTitle = document.createElement('h3');
+                moduleTitle.classList.add('text-lg','border-b','border-gray-200', 'font-semibold', 'text-gray-300');
+                moduleTitle.innerHTML = `<i class="${module.icon}"></i> ${module.module}`;
+                moduleDiv.appendChild(moduleTitle);
+                const optionsList = document.createElement('ul');
+                module.options.forEach(option => {
+                    const optionItem = document.createElement('li');
+                    optionItem.classList.add('text-gray-400', 'cursor-pointer','py-2');
+                    optionItem.innerHTML = `<i class="${option.icon}"></i> ${option.option}`;
+
+                    const subOptionsList = document.createElement('ul');
+                    subOptionsList.classList.add('pl-4', 'space-y-2', 'max-h-0','py-1', 'overflow-hidden', 'transition-all', 'duration-300', 'ease-in-out');
+                    option.subOptions.forEach(subOption => {
+                        const subOptionItem = document.createElement('li');
+                        subOptionItem.classList.add('text-gray-500', 'hover:text-red-500');
+                        subOptionItem.innerHTML = `- ${subOption}`;
+                        subOptionsList.appendChild(subOptionItem);
+                    });
+
+                    // Add event listener to toggle the visibility of sub-options with animation
+                    optionItem.addEventListener('click', function() {
+                        subOptionsList.classList.toggle('max-h-0');
+                        subOptionsList.classList.toggle('max-h-[500px]');  // Adjust this value as needed
+                    });
+
+                    optionItem.appendChild(subOptionsList);
+                    optionsList.appendChild(optionItem);
+                });
+                moduleDiv.appendChild(optionsList);
+                sidebarContainer.appendChild(moduleDiv);
+            });
+        };
+    </script>
+    <div id="sidebar"></div>
+</div>
